@@ -1,0 +1,36 @@
+jenkins:
+  systemMessage: "evo-demo: configured automatically with JCasC plugin\n\n"
+
+unclassified:
+  location:
+    url: "http://localhost:8080/"
+
+jobs:
+  - script: >
+      pipelineJob('evo-demo-build') {
+          definition {
+              parameters {
+                textParam('appPort','8081', 'Port for running app')
+              }
+              cpsScm {
+                  scriptPath 'Jenkinsfile'
+                  scm {
+                    git {
+                        remote { url 'https://github.com/vkurguzov1pt/evo-demo-app.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      }
+
+unclassified:
+  globalLibraries:
+    libraries:
+      - name: "evo-demo-lib"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                remote: "https://github.com/vkurguzov1pt/evo-demo-lib.git"
