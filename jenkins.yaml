@@ -10,7 +10,7 @@ jobs:
       pipelineJob('evo-demo-build') {
           definition {
               parameters {
-                textParam('appPort','8081', 'Port for running app')
+                stringParam('appPort','8081', 'Port for running app')
               }
               cpsScm {
                   scriptPath 'Jenkinsfile'
