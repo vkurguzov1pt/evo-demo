@@ -26,4 +26,6 @@ To make Docker-in-Docker work, docker socket and executable binary are bind to J
 Jenkins home is binded to make deployments work.
 
 - Open browser and navigate to localhost:8080
-- Run build
+- Run build & follow the instructions
+- Open browser and navigate to localhost:<PORT_YOU_SPECIFIED> | DEFAULT:8081 to check build result
+
